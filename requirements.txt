@@ -1,1 +1,10 @@
-aiohttp
+aiohttp==3.7.4
+async-timeout==3.0.1
+attrs==21.2.0
+chardet==4.0.0
+idna==3.1
+multidict==5.1.0
+pydantic==1.8.2
+setuptools==56.2.0
+typing-extensions==3.10.0.0
+yarl==1.6.3
