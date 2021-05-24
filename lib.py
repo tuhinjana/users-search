@@ -47,7 +47,7 @@ async def fetch_all_users(request):
                                    'updated_at'):
                             tmp_repo_data[key] = val
                     tmp_data['repo_list'].append(tmp_repo_data)
-
+                tmp_data['repo_list'] = sorted(tmp_data['repo_list'], key=lambda x: x['updated_at'], reverse=True)
                 if include_param == 'commit_latest':
                     tasks = []
                     for idx in range(len(repo_data)):
