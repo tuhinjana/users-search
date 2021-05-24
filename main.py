@@ -1,14 +1,12 @@
 import asyncio
 import logging
-import os
 
 import aiohttp.web
 
+from config import HOST
+from config import PORT
 from lib import fetch_all_users
 from logger import AccessLogger
-
-HOST = os.getenv('HOST', '0.0.0.0')
-PORT = int(os.getenv('PORT', 8080))
 
 
 async def test_handle(request):

@@ -5,12 +5,17 @@ from typing import Optional
 from pydantic import AnyUrl
 from pydantic import BaseModel
 from pydantic import Field
+from pydantic import validator
 
 
 class Author(BaseModel):
     name: str
     email: str
     date: datetime
+
+    @validator('date')
+    def datetime_to_string(cls, v):
+        return v.isoformat()
 
 
 class CommitterDetails(BaseModel):
@@ -37,6 +42,6 @@ class RepoSchema(BaseModel):
 
 class SingleResponseSchema(BaseModel):
     user_id: int = Field(..., alias='id')
-    login_name: str = Field(..., alias='name')
-    resource_uri: str = Field(..., alias='url')
+    login_name: str = Field(..., alias='login')
+    resource_uri: AnyUrl = Field(..., alias='url')
     repo_list: Optional[List[RepoSchema]]
