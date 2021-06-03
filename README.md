@@ -1,5 +1,6 @@
 # users-search
 `Objective of this project`
+
 This project works as rest-api server which accept HTTP GET request with list of user names
 and search those usernames in github and get public repo of those users, last commit details of those repos.
 
